@@ -1,0 +1,116 @@
+<DOCTYPE HTML>
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="assert/style.css">
+    <script type="text/javascript" src="assert/java.js"></script>
+        
+        
+        
+        <title> Nipuna Perera </title>
+    </head>
+    <body>
+        <div id="snow"></div>
+<div id="main" style = border-color: coral>
+    
+<Button id ="tdob" class ="nav" onclick="Todo()"> To Do List </Button> 
+<Button id="diseb" class ="nav" onclick="Dise()"> DISE ROLL </Button> 
+        
+        <Div id="tdo">
+            
+        <div id="myDIV" class="header">
+  <h2>My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+       
+    </ul>
+        </Div>
+         
+        
+        <Div id="dise" style = "display: none">
+        
+            <div class="subdise">
+                
+            <Button id ="d1" class="r1"> DICE 1  </Button> 
+            <Button id ="d2" class="r1"> DICE 2  </Button> 
+            <Button id ="re" class="r1"> Please Roll!  </Button> 
+                
+         
+            
+                
+          <Button id ="roll" onclick="roll()"> Roll </Button> 
+                
+        </div>
+        
+        </Div>
+        
+        </div>
+        <audio controls autoplay>
+
+  <source src="sound.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+        <script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+        
+    </body>
+    
+    
+</html>
